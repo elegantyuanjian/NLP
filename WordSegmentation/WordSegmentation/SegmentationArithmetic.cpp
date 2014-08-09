@@ -91,14 +91,14 @@ bool SegmentationArithmetic::createOutFile()
 
 		ouf<<"评分结果为"<<endl;
 		EvaluateSystem * evaluate = new EvaluateSystem();
-		evaluate->setSystem_Result(this->result_segment);
+		evaluate->setSystemResult(this->result_segment);
 
-		evaluate->setSystem_Standard(this->standard_segment);
+		evaluate->setSystemStandard(this->standard_segment);
 
 		evaluate->setParam();
 		ouf<<"精确率为"<<endl;
 		ouf<<evaluate->getPrecision()<<endl;
-		ouf<<"召回率为i"<<endl;
+		ouf<<"召回率为"<<endl;
 		ouf<<evaluate->getRecall()<<endl;
 		ouf<<"F-Measure值为"<<endl;
 		ouf<<evaluate->getFMeasure();

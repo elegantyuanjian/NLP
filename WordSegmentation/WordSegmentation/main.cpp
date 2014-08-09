@@ -18,25 +18,23 @@ void main()
 {
 	cout<<"begin split segmentation...."<<endl;
 
-	
 
-
-	
 	clock_t start, finish;
 	double duration;
 	start = clock();
 	ArithmeticFactory factory ;
 
-	SegmentationArithmetic * splitarith = factory.createArithmetic(1);
+	SegmentationArithmetic * split_arith = factory.createArithmetic(1);
 	
-	string strpreprocessed = "中文分词算法从20世纪80年代以来就一直是一个研究热点。近年来，国内外众多学者在中文分词领域做了大量工作，取得了一定的研究成果。";
+	string str_preprocessed = "中文分词算法从20世纪80年代以来就一直是一个研究热点。近年来，国内外众多学者在中文分词领域做了大量工作，取得了一定的研究成果。";
 	string standard_segment ="中文/分词/算法/从/20/世纪/80/年代/以来/就/一直/是/一个/研究/热点/。/近年来/，/国内外/众多/学者/在/中文/分词/领域/做了/大量/工作/，/取得/了/一定的/研究/成果/。";
-	splitarith->setStandardSplitSegment(standard_segment);
-	splitarith->setSourceSegment(strpreprocessed);
-
-	splitarith->splitSourceSegment();
 	
-	splitarith->createOutFile();
+	split_arith->setStandardSplitSegment(standard_segment);
+	split_arith->setSourceSegment(str_preprocessed);
+
+	split_arith->splitSourceSegment();
+	
+	split_arith->createOutFile();
 	
 	finish = clock();
 	duration = (double)(finish - start) / CLOCKS_PER_SEC;
@@ -46,7 +44,8 @@ void main()
 
 	system("pause");
 
-	
+	delete split_arith;
+	split_arith=NULL;
 
 	return ;
 }

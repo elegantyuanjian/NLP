@@ -113,10 +113,7 @@ void MMSegmentation::makeResult()
 		else
 		{
 			temp = temp+"/"+temp1;
-	
 		}
 	}
-	this->setResultSegment(temp);
-
-	
+	this->setResultSegment(temp);	
 }

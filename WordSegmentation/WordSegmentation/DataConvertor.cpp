@@ -25,16 +25,16 @@ bool DataConvertor::convertDictionary(Word_Dictionary_Map * word_dictionary_map)
 	string word;
 	info>>word;
 
-	maxwordlength = word.length();//最长字符串
+	max_word_length = word.length();//最长字符串
 	
 	int index = 0 ;
 	while(info.peek() != EOF)
 	{		
 		word_dictionary_map->insert(Word_Dictionary_VT(index++,word));
 		info>>word;
-		if(word.length()>maxwordlength)
+		if(word.length()>max_word_length)
 		{
-			maxwordlength= word.length();
+			max_word_length= word.length();
 		}
 	}
 
@@ -44,5 +44,5 @@ bool DataConvertor::convertDictionary(Word_Dictionary_Map * word_dictionary_map)
 
 int DataConvertor::getMaxWordLength()
 {
-	return this->maxwordlength;
+	return this->max_word_length;
 }

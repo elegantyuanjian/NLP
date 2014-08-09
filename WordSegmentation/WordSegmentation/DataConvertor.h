@@ -12,7 +12,7 @@ public:
 
 private:
 
-	int maxwordlength;
+	int max_word_length;
 
 };
 

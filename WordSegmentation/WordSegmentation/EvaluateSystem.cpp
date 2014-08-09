@@ -13,13 +13,13 @@ EvaluateSystem::~EvaluateSystem(void)
 
 float EvaluateSystem::getPrecision()
 {
-	if(systemandstandard==0||system_out==0)
+	if(system_and_standard==0||system_out==0)
 	{
 		return 0;
 	}
 	else
 	{
-		float up = systemandstandard;
+		float up = system_and_standard;
 		float down = system_out;
 		return (up/down)*100;
 	}
@@ -27,13 +27,13 @@ float EvaluateSystem::getPrecision()
 
 float EvaluateSystem::getRecall()
 {
-	if(systemandstandard==0||standard_out==0)
+	if(system_and_standard==0||standard_out==0)
 	{
 		return 0;
 	}
 	else
 	{
-		float up = systemandstandard;
+		float up = system_and_standard;
 		float down = standard_out;
 		return (up/down)*100;
 	}
@@ -54,11 +54,11 @@ float EvaluateSystem::getFMeasure()
 }
 
 
-void EvaluateSystem::setSystem_Result(string result)
+void EvaluateSystem::setSystemResult(string result)
 {
 	this->result = result;
 }
-void EvaluateSystem::setSystem_Standard(string standard)
+void EvaluateSystem::setSystemStandard(string standard)
 {
 	this->stadard = standard;
 }
@@ -73,7 +73,7 @@ void EvaluateSystem::setParam()
 	{
 		this->standard_out = 0;
 		this->system_out = 0;
-		this->systemandstandard = 0;
+		this->system_and_standard = 0;
 		
 	}
 
@@ -109,22 +109,22 @@ void EvaluateSystem::setParam()
 			}
 
 		}
-		this->systemandstandard = samecount;
+		this->system_and_standard = samecount;
 		delete result_map;
 		delete standard_map;
 	}
 	
 }
 
-void EvaluateSystem::splistSegment(map<int,string> *result_map,string splitstring)
+void EvaluateSystem::splistSegment(map<int,string> *result_map,string split_string)
 {
 	int begin = 0 ;
 	int index = 0; 
     int position = 0;
 
-	while((position=splitstring.find_first_of('/',index))!=string::npos)
+	while((position=split_string.find_first_of('/',index))!=string::npos)
 	{
-		string temp = splitstring.substr(index,position-index);
+		string temp = split_string.substr(index,position-index);
 		
 		//position = position +1;
 		index=position+1;
@@ -134,9 +134,9 @@ void EvaluateSystem::splistSegment(map<int,string> *result_map,string splitstrin
 		
 	}
 
-	int last = splitstring.find_last_of('/');
+	int last = split_string.find_last_of('/');
 	
-	string temp = splitstring.substr(last+1,splitstring.length());
+	string temp = split_string.substr(last+1,split_string.length());
 	result_map->insert(map<int,string>::value_type(begin,temp));
 	
 }

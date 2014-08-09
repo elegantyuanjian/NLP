@@ -13,9 +13,9 @@ public:
 
 	string preProcess(string source_segment);
 
-	void setSourceSegment(string sourcesegment);
+	void setSourceSegment(string source_segment);
 
-	void setStandardSplitSegment(string standardsegment);
+	void setStandardSplitSegment(string standard_segment);
 
 	void setSymbols();
 

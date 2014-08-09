@@ -10,19 +10,19 @@ public:
 	float getRecall();
 	float getFMeasure();
 
-    void setSystem_Result(string result);
-	void setSystem_Standard(string standard);
+    void setSystemResult(string result);
+	void setSystemStandard(string standard);
 	void setParam();
 private:
 
 	//void setParam();
 
-	void splistSegment(map<int,string> *,string splitstring);
+	void splistSegment(map<int,string> *,string split_string);
 
 	string result;
 	string stadard;
 
-	int systemandstandard;
+	int system_and_standard;
     int system_out;
 	int standard_out;
 
